@@ -84,7 +84,7 @@ const handleOperator = (nextOperator) => {
   } else if (operator) {
     const result = calculate(firstOperand, inputValue, operator);
 
-    calculator.displayValue = `${parseFloat(result.toFixed(0))}`
+    calculator.displayValue = `${parseFloat(result.toFixed(7))}`;
     calculator.firstOperand = result;
   }
   calculator.waitingForSecondOperand = true;
@@ -94,25 +94,22 @@ const handleOperator = (nextOperator) => {
 // logic
 
 const calculate = (firstOperand, secondOperand, operator) => {
-if (operator === "+") {
-    return firstOperand + secondOperand
-}
- else if (operator === "-") {
-return firstOperand - secondOperand;
-} 
-else if (operator === "*") {
+  if (operator === "+") {
+    return firstOperand + secondOperand;
+  } else if (operator === "-") {
+    return firstOperand - secondOperand;
+  } else if (operator === "*") {
     return firstOperand * secondOperand;
-}
- else if ( operator === "/") {
+  } else if (operator === "/") {
     return firstOperand / secondOperand;
-}
+  }
 
-return secondOperand;
+  return secondOperand;
 };
 
 const resetCalculator = () => {
-    calculator.displayValue = "0",
-  calculator.firstOperand = null,calculator.
-  calculator.waitingForSecondOperand = false,
-  calculator.operator = null,
-}
+  calculator.displayValue = "0";
+  calculator.firstOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
+};
